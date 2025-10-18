@@ -1,0 +1,80 @@
+add_newline = false
+command_timeout = 10000
+
+format = """
+[╭─[$username](brown)$hostname: ](bold purple)$directory $git_branch $git_status $rust $package $python $nodejs $php $cmd_duration $time
+[╰─$character](bold purple)"""
+
+[character]
+success_symbol = "[](bold green)[](bold yellow)[](bold red)"
+error_symbol = "[](bold red)[](bold red)[](bold cyan)"
+vicmd_symbol = "[](bold green)"
+
+[aws]
+disabled = true
+
+[time]
+disabled = false
+style = "bold red"
+
+[cmd_duration]
+disabled = false
+min_time = 200
+
+[directory]
+truncation_length = 20
+truncate_to_repo = false
+format = "[$path]($style) [$read_only]($read_only_style) "
+style = "fg:blue bold"
+read_only_style = "197"
+read_only = "  "
+repo_root_style = "fg:cyan bold"
+repo_root_format = " repo: [$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+[hostname]
+disabled = false
+ssh_only = false
+format = "@[$hostname](bold yellow)"
+
+[nodejs]
+symbol = " "
+
+[python]
+symbol = " "
+
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "⚡️ "
+discharging_symbol = "💀 "
+disabled = false
+
+[git_branch]
+format = "on [$symbol$branch(:$remote_branch)]($style) ► "
+symbol = " "
+style = "bold purple"
+truncation_length = 20
+
+[git_status]
+conflicted = "🚩"
+ahead = "💨"
+behind = "😰"
+diverged = "😵"
+untracked = '$count  '
+stashed = "📦"
+modified = "$count 📝"
+staged = '[+$count](green) '
+renamed = "👅"
+deleted = "💥"
+
+[shell]
+fish_indicator = "🦈"
+bash_indicator = "🌞"
+powershell_indicator = "💻"
+disabled = false
+
+[username]
+disabled = false
+show_always =true
+style_root = "yellow bold"
+style_user = "green bold"
+format = "[$user]($style)"
