@@ -30,21 +30,35 @@ return {
     end,
   },
 
-  -- None-ls (formerly null-ls) for shell formatting and linting
+  -- Conform.nvim for shell formatting
   {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      local null_ls = require("null-ls")
-      opts.sources = opts.sources or {}
-      vim.list_extend(opts.sources, {
-        -- Shell formatting and linting
-        null_ls.builtins.formatting.shfmt.with({
-          extra_args = { "-i", "2", "-ci" },
-        }),
-        null_ls.builtins.diagnostics.shellcheck,
-        null_ls.builtins.code_actions.shellcheck,
-      })
-    end,
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        sh = { "shfmt" },
+        bash = { "shfmt" },
+        zsh = { "shfmt" },
+      },
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "2", "-ci" },
+        },
+      },
+    },
+  },
+
+  -- nvim-lint for shell linting (alternative to none-ls)
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        sh = { "shellcheck" },
+        bash = { "shellcheck" },
+        zsh = { "shellcheck" },
+      },
+    },
   },
 
   -- Treesitter for shell syntax highlighting
