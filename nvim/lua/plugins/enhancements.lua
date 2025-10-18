@@ -1,3 +1,5 @@
+-- Additional tools and configuration enhancements
+return {
   -- Enhanced Git integration
   {
     "lewis6991/gitsigns.nvim",
