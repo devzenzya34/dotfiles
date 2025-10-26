@@ -45,14 +45,20 @@ default-root-container-layout = 'tiles'
     cmd-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    cmd-left = 'focus left'
-    cmd-down = 'focus down'
-    cmd-up = 'focus up'
-    cmd-right = 'focus right'
+    alt-left = 'focus left'
+    alt-down = 'focus down'
+    alt-up = 'focus up'
+    alt-right = 'focus right'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    cmd-shift-left = ['move-node-to-workspace prev --wrap-around', 'workspace prev --wrap-around']
-    cmd-shift-right = ['move-node-to-workspace next --wrap-around', 'workspace next --wrap-around'] 
+    # Focus monitor only (do not move the window)
+    ctrl-left = 'focus-monitor --wrap-around left'
+    ctrl-right = 'focus-monitor --wrap-around right'
+    ctrl-up = 'focus-monitor --wrap-around up'
+    ctrl-down = 'focus-monitor --wrap-around down'
+
+    # Move focused window to another monitor AND follow (switch focus to that monitor)
+    ctrl-shift-left = ['move-node-to-monitor --wrap-around left', 'focus-monitor --wrap-around left']
+    ctrl-shift-right = ['move-node-to-monitor --wrap-around right', 'focus-monitor --wrap-around right']
 
     # Go directly to workspace N (without moving any window)
     cmd-1 = 'workspace 1'
@@ -76,15 +82,13 @@ default-root-container-layout = 'tiles'
     cmd-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
     cmd-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
-    # Move focused window to another monitor AND follow (switch focus to that monitor)
-    cmd-ctrl-left = ['move-node-to-monitor --wrap-around left', 'focus-monitor --wrap-around left']
-    cmd-ctrl-right = ['move-node-to-monitor --wrap-around right', 'focus-monitor --wrap-around right']
+    # Focus next/prev workspace (without moving windows)
+    cmd-right = 'workspace prev --wrap-around'
+    cmd-left = 'workspace next --wrap-around'
 
-    # Focus monitor only (do not move the window)
-    ctrl-left = 'focus-monitor --wrap-around left'
-    ctrl-right = 'focus-monitor --wrap-around right'
-    ctrl-up = 'focus-monitor --wrap-around up'
-    ctrl-down = 'focus-monitor --wrap-around down'
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move
+    cmd-shift-left = ['move-node-to-workspace prev --wrap-around', 'workspace prev --wrap-around']
+    cmd-shift-right = ['move-node-to-workspace next --wrap-around', 'workspace next --wrap-around'] 
 
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
